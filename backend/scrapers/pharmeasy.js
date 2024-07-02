@@ -45,7 +45,8 @@ const pharmeasy = async(medicine) => {
                 "https://www.pharmeasy.in"+$(hyperLink[1]).attr('href'),
                 "https://www.pharmeasy.in"+$(hyperLink[2]).attr('href'),
                 "https://www.pharmeasy.in"+$(hyperLink[3]).attr('href')
-            ]
+            ],
+            src: Array.from({length: 4}, () => "Pharmeasy")
         }
         let priceParent = $(".ProductCard_priceContainer__dqj7Q")
         let price = $(".ProductCard_ourPrice__yDytt")

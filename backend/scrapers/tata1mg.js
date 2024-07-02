@@ -34,6 +34,14 @@ const tata1mg = async(medicine) => {
             hyperLink = $(".style__product-link___1hWpa")
         }
 
+        var ads = $(".style__adBadge-text___2He6o")
+        var ads_flag = 0
+            if (ads['length'] != 0)
+            {
+                ads_flag = 1
+                console.log("ads_flag")
+            }
+
         let medicineDetails = {
             medicines: [
                 $(med_name[0]).text(),
@@ -47,12 +55,35 @@ const tata1mg = async(medicine) => {
                 $(price[2]).text(),
                 $(price[3]).text()
             ],
+            images: [],
             hyperLinks: [
                 "https://www.1mg.com" + ($(hyperLink[0]).attr('href') || ''),
                 "https://www.1mg.com" + ($(hyperLink[1]).attr('href') || ''),
                 "https://www.1mg.com" + ($(hyperLink[2]).attr('href') || ''),
                 "https://www.1mg.com" + ($(hyperLink[3]).attr('href') || '')
-            ]
+            ],
+            src: Array.from({length: 4}, () => "Tata1mg")
+        }
+
+        var imgScripts = $("div.content script").first()    
+        var string = imgScripts.text()
+        var images = []
+        string.split("\"").forEach(str => {
+            if(str.startsWith("https://onemg.gumlet.io/")&&str.includes("h_150")){
+                images.push(str.replace('\\',''))
+            }
+        })
+        if(ads_flag == 1) {
+            medicineDetails.images.push(images[0])
+            medicineDetails.images.push(images[1])
+            medicineDetails.images.push(images[3])
+            medicineDetails.images.push(images[4])
+        }
+        else {
+            medicineDetails.images.push(images[0])
+            medicineDetails.images.push(images[1])
+            medicineDetails.images.push(images[2])
+            medicineDetails.images.push(images[3])   
         }
 
         return medicineDetails
