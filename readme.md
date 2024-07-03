@@ -1,3 +1,8 @@
+## About
+1. Our application compares prices from multiple online medicine websites, helping users get the best deals on their purchases.
+2. We bring together data from medicine selling websites on a single page, giving users a better understanding of medicine price trends.
+3. Our goal is to develop an application that quickly and easily finds the best deals, saving users time and effort.
+
 ## Scrape result
 
 ### Tata1mg 
